@@ -31,14 +31,18 @@ r = []
 for i in range(n):
     r.append(input())
 
-tw = []
+# r is a list of strings
+# transpose r to the list of strings using zip
+# t is a list of strings
+t = [''.join(x) for x in zip(*r)]
 
-for i in range(n):
-    d = ''
-    for j in range(n):
-        d += r[j][i]
-    r.append(d)
+r += t
 
+# add transposed rows the grid r
+# r += list(map(list, zip(*r)))
+
+
+# add reversed rows to r
 rr = r + [c[::-1] for c in r]
 
 w = []
