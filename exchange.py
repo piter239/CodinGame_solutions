@@ -29,6 +29,8 @@
 # Any number of robots can occupy a tile, but if units of opposing teams end the turn on the same tile, they are removed 1 for 1.
 # Afterwards, if the tile still has robots, they will mark that tile.
 #
+#
+# After moving all robots to the middle tile, only one blue robot remains and the tile is marked.
 # Robots may not occupy a Grass tile or share a tile with a Recycler.
 #
 #   Recyclers
@@ -211,7 +213,6 @@ while True:
     for tile in my_tiles:
         if tile.can_spawn:
             amount = 0  # TODO: pick amount of robots to spawn here
-
             if amount > 0:
                 actions.append('SPAWN {} {} {}'.format(amount, tile.x, tile.y))
         if tile.can_build:
